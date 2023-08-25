@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+    <script src="{% static 'quizzes/main.js' %}" defer></script>
+{% endblock scripts %}
+
+
+{% block title %}
+    Progress
+{% endblock title %}
+
+{% block left-btn %}
+    <h6>Welcome, {{ request.user.username }}</h6>
+{% endblock left-btn %}
+
+{%  block content %}
+
+    <!-- Modal -->
+    <div class="modal fade" id="quizStartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Phase Selection Error</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal-body-confirm"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <h1 align="center" style="color:MediumSeaGreen">{{ quiz.country }}</h1>
+    <h2 style="padding-left:80px">Progress</h2>
+    <!-- Pre Quiz Container -->
+    <div class="section-container">
+        <div id="quiz-container" class="grid-container">
+            <div class="first-row" align="left">Pre-Assessment Quiz</div>
+            {{ results|json_script:"results-data" }}
+            <div id="result-display" class="first-row" align="right">
+
+            </div>
+            {% for quiz in prequiz %}
+                <div id="quiz-title" class="second-row" align="left"> {{ quiz.name }} </div>
+                <div id = "quiz-result" class="second-row" align="right">
+                    <button id = startBtn class="btn btn-link btn-sm"
+                            data-pk="{{ quiz.pk }}"
+                            data-quiz="{{ quiz.name }}"
+                            data-pass="{{ quiz.required_score_to_pass }}"
+                            data-toggle="modal"
+                            data-target="#quizStartModal">
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Phase 1-->
+    <div class="section-container">
+        <div id="quiz-container" class="grid-container">
+            <div class="first-row" align="left">Phase 1</div>
+            {{ results|json_script:"results-data" }}
+            <div id="result-display" class="first-row" align="right">
+
+            </div>
+            {% for quiz in phase1 %}
+                <div id="quiz-title" class="second-row" align="left"> {{ quiz.name }} </div>
+                <div id = "quiz-result" class="second-row" align="right">
+                    <button id = startBtn class="btn btn-link btn-sm"
+                            data-pk="{{ quiz.pk }}"
+                            data-quiz="{{ quiz.name }}"
+                            data-pass="{{ quiz.required_score_to_pass }}"
+                            data-toggle="modal"
+                            data-target="#quizStartModal">
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="section-container">
+        <div id="quiz-container" class="grid-container">
+            <div class="first-row" align="left">Phase 2</div>
+            {{ results|json_script:"results-data" }}
+            <div id="result-display" class="first-row" align="right">
+
+            </div>
+            {% for quiz in phase2 %}
+                <div id="quiz-title" class="second-row" align="left"> {{ quiz.name }} </div>
+                <div id = "quiz-result" class="second-row" align="right">
+                    <button id = startBtn class="btn btn-link btn-sm"
+                            data-pk="{{ quiz.pk }}"
+                            data-quiz="{{ quiz.name }}"
+                            data-pass="{{ quiz.required_score_to_pass }}"
+                            data-toggle="modal"
+                            data-target="#quizStartModal">
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <!-- Phase 3-->
+     <div class="section-container">
+        <div id="quiz-container" class="grid-container">
+            <div class="first-row" align="left">Phase 3</div>
+            {{ results|json_script:"results-data" }}
+            <div id="result-display" class="first-row" align="right">
+
+            </div>
+            {% for quiz in phase3 %}
+                <div id="quiz-title" class="second-row" align="left"> {{ quiz.name }} </div>
+                <div id = "quiz-result" class="second-row" align="right">
+                    <button id = startBtn class="btn btn-link btn-sm"
+                            data-pk="{{ quiz.pk }}"
+                            data-quiz="{{ quiz.name }}"
+                            data-pass="{{ quiz.required_score_to_pass }}"
+                            data-toggle="modal"
+                            data-target="#quizStartModal">
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {#    <h1 align="center" style="color:MediumSeaGreen">{{ prequiz.country }}</h1>#}
+{#    <h2 style="padding-left:80px">Progress</h2>#}
+{#    <div class="section-container">#}
+{#        <div id="prequiz-container" class="grid-container">#}
+{#            <div class="first-row" align="left">Pre-Assessment Quiz</div>#}
+{#            {% if prequiz_result.score == 100.0 %}#}
+{#                <div class="first-row" align="right">100%</div>#}
+{#            {% else %}#}
+{#                <div class="first-row" align="right">0%</div>#}
+{#            {% endif %}#}
+{#            <div class="second-row" align="left">{{ prequiz.name }}</div>#}
+{#            <div class="second-row" align="right">#}
+{#                <button id = startBtn class="btn btn-link btn-sm"#}
+{#                        data-pk="{{ prequiz.pk }}"#}
+{#                        data-quiz="{{ prequiz.name }}"#}
+{#                        data-pass="{{ prequiz.required_score_to_pass }}"#}
+{#                        data-toggle="modal"#}
+{#                        data-target="#quizStartModal">#}
+{#                        {% if prequiz_result %}#}
+{#                            {{ prequiz_result.score }}% &#8680;#}
+{#                        {% else %}#}
+{#                            0% &#8680;#}
+{#                        {% endif %}#}
+{#                </button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div id="phase1-container" class="section-container">#}
+{#        <div class="grid-container">#}
+{#            <div class="first-row" align="left">Phase 1</div>#}
+{#            <div id="quiz-progress" class="first-row" align="right">0%</div>#}
+{#            <div class="second-row" align="left">Location</div>#}
+{#            <div class="second-row" align="right">#}
+{#                <button id = startBtn class="btn btn-link btn-sm"#}
+{#                        data-pk="{{ loc_quiz_1.pk }}"#}
+{#                        data-quiz="{{ loc_quiz_1.name }}"#}
+{#                        data-pass="{{ loc_quiz_1.required_score_to_pass }}"#}
+{#                        data-toggle="modal"#}
+{#                        data-target="#quizStartModal">#}
+{#                        {% if loc_quiz_result_1 %}#}
+{#                            {{ loc_quiz_result_1.score }}% &#8680;#}
+{#                        {% else %}#}
+{#                            0% &#8680;#}
+{#                        {% endif %}#}
+{#                </button>#}
+{#            </div>#}
+{#            <div class="second-row" align="left">Culture-Politics</div>#}
+{#            <div class="second-row" align="right">#}
+{#                <button id = startBtn class="btn btn-link btn-sm"#}
+{#                    data-pk="{{ cult_quiz_1.pk }}"#}
+{#                    data-quiz="{{ cult_quiz_1.name }}"#}
+{#                    data-pass="{{ cult_quiz_1.required_score_to_pass }}"#}
+{#                    data-toggle="modal"#}
+{#                    data-target="#quizStartModal">#}
+{#                    {% if cult_quiz_result_1 %}#}
+{#                        {{ cult_quiz_result_1.score }}% &#8680;#}
+{#                    {% else %}#}
+{#                        0% &#8680;#}
+{#                    {% endif %}#}
+{#                </button>#}
+{#            </div>#}
+{#            <div class="second-row" align="left">Language-Religion</div>#}
+{#            <div class="second-row" align="right">#}
+{#                <button id = startBtn class="btn btn-link btn-sm"#}
+{#                    data-pk="{{ lang_quiz_1.pk }}"#}
+{#                    data-quiz="{{ lang_quiz_1.name }}"#}
+{#                    data-pass="{{ lang_quiz_1.required_score_to_pass }}"#}
+{#                    data-toggle="modal"#}
+{#                    data-target="#quizStartModal">#}
+{#                    {% if lang_quiz_result_1 %}#}
+{#                        {{ lang_quiz_result_1.score }}% &#8680;#}
+{#                    {% else %}#}
+{#                        0% &#8680;#}
+{#                    {% endif %}#}
+{#                </button>#}
+{#            </div>#}
+{#            <div class="second-row" align="left">Population</div>#}
+{#            <div class="second-row" align="right">#}
+{#                <button id = startBtn class="btn btn-link btn-sm"#}
+{#                    data-pk="{{ pop_quiz_1.pk }}"#}
+{#                    data-quiz="{{ pop_quiz_1.name }}"#}
+{#                    data-pass="{{ pop_quiz_1.required_score_to_pass }}"#}
+{#                    data-toggle="modal"#}
+{#                    data-target="#quizStartModal">#}
+{#                    {% if pop_quiz_result_1 %}#}
+{#                        {{ pop_quiz_result_1.score }}% &#8680;#}
+{#                    {% else %}#}
+{#                        0% &#8680;#}
+{#                    {% endif %}#}
+{#                </button>#}
+{#            </div>#}
+{#            <div class="second-row" align="left">History-Economy</div>#}
+{#            <div class="second-row" align="right">#}
+{#                <button id = startBtn class="btn btn-link btn-sm"#}
+{#                    data-pk="{{ hist_quiz_1.pk }}"#}
+{#                    data-quiz="{{ hist_quiz_1.name }}"#}
+{#                    data-pass="{{ hist_quiz_1.required_score_to_pass }}"#}
+{#                    data-toggle="modal"#}
+{#                    data-target="#quizStartModal">#}
+{#                    {% if hist_quiz_result_1 %}#}
+{#                        {{ hist_quiz_result_1.score }}% &#8680;#}
+{#                    {% else %}#}
+{#                        0% &#8680;#}
+{#                    {% endif %}#}
+{#                </button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div id="phase2-container" class="section-container">#}
+{#        <div class="grid-container">#}
+{#            <div class="first-row" align="left">Phase 2</div>#}
+{#            <div class="first-row" align="right">100%</div>#}
+{#            <div class="second-row" align="left">Location</div>#}
+{#            <div class="second-row" align="right">100% &#8680;</div>#}
+{#            <div class="second-row" align="left">Culture-Politics</div>#}
+{#            <div class="second-row" align="right">100% &#8680;</div>#}
+{#            <div class="second-row" align="left">Language-Religion</div>#}
+{#            <div class="second-row" align="right">100% &#8680;</div>#}
+{#            <div class="second-row" align="left">Population</div>#}
+{#            <div class="second-row" align="right">100% &#8680;</div>#}
+{#            <div class="second-row" align="left">History-Economy</div>#}
+{#            <div class="second-row" align="right">100% &#8680;</div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div id="phase3-container" class="section-container">#}
+{#        <div class="grid-container">#}
+{#            <div class="first-row" align="left">Phase 3</div>#}
+{#            <div class="first-row" align="right">100%</div>#}
+{#            <div class="second-row" align="left">Location</div>#}
+{#            <div class="second-row" align="right">100% &#8680;</div>#}
+{#            <div class="second-row" align="left">Culture-Politics</div>#}
+{#            <div class="second-row" align="right">100% &#8680;</div>#}
+{#            <div class="second-row" align="left">Language-Religion</div>#}
+{#            <div class="second-row" align="right">100% &#8680;</div>#}
+{#            <div class="second-row" align="left">Population</div>#}
+{#            <div class="second-row" align="right">100% &#8680;</div>#}
+{#            <div class="second-row" align="left">History-Economy</div>#}
+{#            <div class="second-row" align="right">100% &#8680;</div>#}
+{#        </div>#}
+{#    </div>#}
+
+{% endblock content %}

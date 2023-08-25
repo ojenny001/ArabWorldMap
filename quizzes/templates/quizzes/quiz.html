@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+    <script src="{% static 'quizzes/quiz.js' %}" defer>
+        {#quiz = {{ obj|escapejs }};#}
+        {#const historical_image1 = {{ historical_image1 }};#}
+        {#const historical_image2 = {{ historical_image2 }};#}
+        {#const historical_image3 = {{ historical_image3 }};#}
+        {#const image1_desc = {{ image1_desc }};#}
+        {#const image2_desc = {{ image2_desc }};#}
+        {#const image3_desc = {{ image3_desc }};#}
+    </script>
+{% endblock scripts %}
+
+
+{% block title %}
+    {{ obj.name }}
+{% endblock title %}
+
+{% block left-btn %}
+    <a href="{% url 'quizzes:main-view' obj.country %}" class="btn btn-primary btn-sm">&#8678; Return to {{ obj.country }}'s Progress Page</a>
+{% endblock left-btn %}
+
+{% block content %}
+
+    <div>
+        <h1 align="center" style="color:MediumSeaGreen">{{ obj.country }}</h1>
+        <p align="center" style="font-size:24px">{{ obj.name }} </p>
+
+        <div id="multimedia-box"
+             quiz="{{ obj.name }}"
+             quiz_country = "{{ obj.country }}"
+             historical_image1 = "{{ historical_image1 }}"
+             historical_image2 = "{{ historical_image2 }}"
+             historical_image3 = "{{ historical_image3 }}"
+             image1_desc = "{{ image1_desc }}"
+             image2_desc = "{{ image2_desc }}"
+             image3_desc = "{{ image3_desc }}"
+             video = "{{ video }}">
+
+{#            <h3><b>{{ obj.country }}'s Historical Places</b></h3>#}
+{##}
+{#            <div class="row">#}
+{#                <div class="column">#}
+{#                    <img src={{ historical_image1 }} alt="Historical_Image1" style="width:100%">#}
+{#                    <div class="description">{{ image1_desc }}</div>#}
+{#                </div>#}
+{##}
+{#                <div class="column">#}
+{#                    <img src={{ historical_image2 }} alt="Historical_Image1" style="width:100%">#}
+{#                    <div class="description">{{ image2_desc }}</div>#}
+{#                </div>#}
+{##}
+{#                <div class="column">#}
+{#                    <img src={{ historical_image3 }} alt="Historical_Image1" style="width:100%">#}
+{#                    <div class="description">{{ image3_desc }}</div>#}
+{#                </div>#}
+{#            </div>#}
+
+        </div>
+
+        <div class="quiz-container">
+            <h2>{{ obj.name }}</h2>
+            <br>
+            <p>Score Needed to Pass: {{ obj.required_score_to_pass }}%</p>
+            <form id="quiz-form" class="mt-3 mb-3">
+                {%  csrf_token %}
+                <div id="quiz-box"></div>
+                <br>
+                <button type="submit" class="btn btn-success" align="center">Submit</button>
+            </form>
+            <div id="score-box"></div>
+            <div id="result-box"></div>
+        </div>
+
+{% endblock content %}
