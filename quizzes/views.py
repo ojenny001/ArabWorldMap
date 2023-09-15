@@ -39,7 +39,7 @@ def register(request):
                                                 email=email, first_name=first_name, last_name=last_name)
                 user.save()
 
-                return redirect('login_user')
+                return redirect('quizzes/login_user')
 
 
         else:
@@ -64,7 +64,7 @@ def login_user(request):
             return redirect('/')
         else:
             messages.info(request, 'Invalid Username or Password')
-            return redirect('login_user')
+            return redirect('quizzes/login_user')
 
     else:
         return render(request, 'quizzes/login.html')
