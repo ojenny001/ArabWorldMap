@@ -39,7 +39,8 @@
         <div class="left-btn">
             {% if not request.user.is_active %}
                 {# <a href="{% url 'quiz:login' %}" class="btn btn-success mt-1 ml-2"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a>#}
-                <a href="https://www.w3schools.com/">Login</a>
+                <a href="{% url 'quizzes:login_user' %}">Login</a>
+                <a href="{% url 'quizzes:register' %}">Register</a>
             {% else %}
                 {% block left-btn %}{% endblock left-btn %}
 {#          <a href="{% url 'quiz:logout' %}" class="btn btn-danger mt-1 ml-4">Log Out <i class="fa fa-sign-out" aria-hidden="true"></i></a>#}

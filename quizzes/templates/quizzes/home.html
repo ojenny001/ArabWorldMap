@@ -6,6 +6,7 @@
 
 {% block left-btn %}
     <h6>Welcome, {{ request.user.username }}</h6>
+    <a href="{% url 'quizzes:logout_user' %}">Logout</a>
 {% endblock left-btn %}
 
 {%  block content %}
