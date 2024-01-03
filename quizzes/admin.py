@@ -35,5 +35,4 @@ admin.site.register(Phase2Quiz, Phase2QuizAdmin)
 admin.site.register(Phase2Question)
 admin.site.register(Phase3Quiz, Phase3QuizAdmin)
 admin.site.register(Phase3Question)
-# admin.site.register(Country, CountryAdmin)
 

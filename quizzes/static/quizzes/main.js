@@ -1,4 +1,4 @@
-var $j = jQuery.noConflict();
+// var $j = jQuery.noConflict();
 
 console.log('hello world');
 
