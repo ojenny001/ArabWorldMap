@@ -1,6 +1,5 @@
 from django.db import models
 from quizzes.models import Phase1Quiz, Phase2Quiz, Country
-from quizzes.models import Phase1Quiz, Country
 from django.contrib.auth.models import User
 
 # Create your models here.
