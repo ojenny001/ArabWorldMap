@@ -4,6 +4,7 @@ set -o errexit
 /opt/render/project/src/.venv/bin/python -m pip install --upgrade pip
 
 pip install -r requirements.txt
+python manage.py migrate --fake notes zero
 
 if [[ $CREATE_SUPERUSER ]];
 then
