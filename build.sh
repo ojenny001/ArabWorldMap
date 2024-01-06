@@ -12,5 +12,8 @@ then
 fi
 
 python manage.py collectstatic --no-input
+python manage.py makemigrations quizzes
+python manage.py makemigrations results
 python manage.py makemigrations
+
 python manage.py migrate
