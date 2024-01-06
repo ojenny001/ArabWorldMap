@@ -89,7 +89,7 @@ class Phase3Quiz(models.Model):
         return f"{self.name}"
 
     def get_questions(self):
-        return self.question_set.all()
+        return self.phase3question_set.all()
 
     class Meta:
         verbose_name_plural = 'Phase 3 Quizzes'
