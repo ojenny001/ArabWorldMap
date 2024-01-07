@@ -99,7 +99,7 @@ WSGI_APPLICATION = 'ArabWorldMap.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://arab_world_map_tnrq_user:675vKdnbyp6dxF9MMV99iXMNQeOlZ1dR@dpg-cmdf3hn109ks7397q370-a/arab_world_map_tnrq',
+        default='postgres://arab_world_map_tnrq_user:675vKdnbyp6dxF9MMV99iXMNQeOlZ1dR@dpg-cmdf3hn109ks7397q370-a.oregon-postgres.render.com/arab_world_map_tnrq',
         conn_max_age=600
     )
 }
