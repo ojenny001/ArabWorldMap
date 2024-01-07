@@ -13,7 +13,7 @@ from .views import (
     submit_phase2_view
     )
 
-app_name = 'quizzes_staticfiles'
+app_name = 'quizzes'
 
 urlpatterns = [
     path('', home, name='home'),

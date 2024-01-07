@@ -39,7 +39,7 @@ def register(request):
                                                 email=email, first_name=first_name, last_name=last_name)
                 user.save()
 
-                return redirect('quizzes_staticfiles/login_user')
+                return redirect('quizzes/login_user')
 
 
         else:
@@ -64,7 +64,7 @@ def login_user(request):
             return redirect('/')
         else:
             messages.info(request, 'Invalid Username or Password')
-            return redirect('quizzes_staticfiles/login_user')
+            return redirect('quizzes/login_user')
 
     else:
         return render(request, 'quizzes/login.html')
@@ -76,11 +76,11 @@ def logout_user(request):
 
 # class Country(ListView):
 #     model = Country
-#     template_name = 'quizzes_staticfiles/main.html'
+#     template_name = 'quizzes/main.html'
 
 # class Progress(ListView):
 #     model = Quiz
-#     template_name = 'quizzes_staticfiles/main.html'
+#     template_name = 'quizzes/main.html'
 #
 #     def get_results(self, request):
 #         result = Result.objects.get(quiz=Quiz.name)

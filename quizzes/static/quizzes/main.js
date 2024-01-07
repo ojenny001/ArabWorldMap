@@ -65,7 +65,7 @@ function getTopScore(arr, pk) {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Get the number of quizzes_staticfiles and completed quizzes_staticfiles from the template context
+    // Get the number of quizzes and completed quizzes from the template context
 
     const resultsData = JSON.parse(document.getElementById("results-data").textContent);
 
