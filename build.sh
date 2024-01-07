@@ -11,8 +11,6 @@ then
 fi
 
 python manage.py collectstatic --no-input
-python manage.py migrate --fake quizzes zero
-python manage.py migrate --fake results zero
 
 python manage.py migrate quizzes
 python manage.py migrate results
