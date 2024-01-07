@@ -1,1 +1,0 @@
-web gunicorn ArabWorldMap.wsgi:application --log-file -

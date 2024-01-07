@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('quizzes', '0002_remove_phase2question_response_and_more'),
+        ('quizzes_staticfiles', '0002_remove_phase2question_response_and_more'),
     ]
 
     operations = [

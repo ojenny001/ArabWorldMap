@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=120, null=True)),
                 ('required_score_to_pass', models.IntegerField(help_text='required score to pass', null=True)),
-                ('country', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes.country')),
+                ('country', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes_staticfiles.country')),
             ],
             options={
                 'verbose_name_plural': 'Phase 2 Quizzes',
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('response', models.CharField(max_length=200, null=True)),
                 ('answer', models.CharField(max_length=200, null=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('quiz', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes.phase3quiz')),
+                ('quiz', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes_staticfiles.phase3quiz')),
             ],
         ),
         migrations.CreateModel(
@@ -51,7 +51,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=120, null=True)),
                 ('required_score_to_pass', models.IntegerField(help_text='required score to pass', null=True)),
-                ('country', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes.country')),
+                ('country', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes_staticfiles.country')),
             ],
             options={
                 'verbose_name_plural': 'Phase 2 Quizzes',
@@ -65,7 +65,7 @@ class Migration(migrations.Migration):
                 ('response', models.CharField(max_length=200, null=True)),
                 ('answer', models.CharField(max_length=200, null=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('quiz', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes.phase2quiz')),
+                ('quiz', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes_staticfiles.phase2quiz')),
             ],
         ),
         migrations.CreateModel(
@@ -74,7 +74,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=120, null=True)),
                 ('required_score_to_pass', models.IntegerField(help_text='required score to pass', null=True)),
-                ('country', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes.country')),
+                ('country', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes_staticfiles.country')),
             ],
             options={
                 'verbose_name_plural': 'Phase 1 Quizzes',
@@ -91,7 +91,7 @@ class Migration(migrations.Migration):
                 ('op4', models.CharField(max_length=200, null=True)),
                 ('answer', models.CharField(max_length=200, null=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('quiz', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes.phase1quiz')),
+                ('quiz', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quizzes_staticfiles.phase1quiz')),
             ],
         ),
     ]
