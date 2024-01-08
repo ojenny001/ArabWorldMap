@@ -99,13 +99,24 @@ WSGI_APPLICATION = 'ArabWorldMap.wsgi.application'
 
 
 print('Database here: ', )
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # Feel free to alter this value to suit your needs.
+#         default='postgres://ojenny001:64o5RUPJHWXtApcFDbzUQA6zNOEwBB9M@dpg-cmdfeog21fec73d33jf0-a.oregon-postgres.render.com/arab_world_map_i0no',
+#         conn_max_age=600
+#     )
+# }
+
 DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgres://ojenny001:64o5RUPJHWXtApcFDbzUQA6zNOEwBB9M@dpg-cmdfeog21fec73d33jf0-a.oregon-postgres.render.com/arab_world_map_i0no',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'arab_world_map_i0no',
+        'USER': 'ojenny001',
+        'HOST' : 'dpg-cmdfeog21fec73d33jf0-a',
+        'PASSWORD': '64o5RUPJHWXtApcFDbzUQA6zNOEwBB9M',
+    }
 }
+
 
 
 # Password validation
