@@ -97,6 +97,8 @@ WSGI_APPLICATION = 'ArabWorldMap.wsgi.application'
 #     }
 # }
 
+
+print('Database here: ', )
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
