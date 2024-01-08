@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 # DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = []
@@ -98,25 +98,13 @@ WSGI_APPLICATION = 'ArabWorldMap.wsgi.application'
 # }
 
 
-print('Database here: ', )
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # Feel free to alter this value to suit your needs.
-#         default='postgres://ojenny001:64o5RUPJHWXtApcFDbzUQA6zNOEwBB9M@dpg-cmdfeog21fec73d33jf0-a.oregon-postgres.render.com/arab_world_map_i0no',
-#         conn_max_age=600
-#     )
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'arab_world_map_i0no',
-        'USER': 'ojenny001',
-        'HOST' : 'dpg-cmdfeog21fec73d33jf0-a',
-        'PASSWORD': '64o5RUPJHWXtApcFDbzUQA6zNOEwBB9M',
-    }
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgres://ojenny001:64o5RUPJHWXtApcFDbzUQA6zNOEwBB9M@dpg-cmdfeog21fec73d33jf0-a.oregon-postgres.render.com/arab_world_map_i0no',
+        conn_max_age=600
+    )
 }
-
 
 
 # Password validation
